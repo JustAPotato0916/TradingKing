@@ -3,18 +3,22 @@ import StockDetailPage from './pages/StockDetailPage'
 import StockOverviewPage from './pages/StockOverviewPage'
 import { WatchListContextProvider } from './context/watchListContext'
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
-  return <main className='container'>
+  return <div >
     <WatchListContextProvider>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<StockOverviewPage />} />
-        <Route path="/detail/:symbol" element={<StockDetailPage />} />
-      </Routes>
-    </BrowserRouter>
+        <Navbar />
+        <main className='container'>
+          <Routes>
+            <Route path="/" element={<StockOverviewPage />} />
+            <Route path="/detail/:symbol" element={<StockDetailPage />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     </WatchListContextProvider>
-  </main>
+  </div>
 }
 
 export default App
